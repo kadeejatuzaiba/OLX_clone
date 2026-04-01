@@ -147,33 +147,7 @@ const MyAds = () => {
                     </button>
                     </div>
 
-                    {/* <div className="relative mt-1">
-                    <button
-                        className="text-gray-700"
-                        onClick={() =>
-                        setActiveDropdown(activeDropdown === index ? null : index)
-                        }
-                    >
-                        <FaEllipsisV />
-                    </button>
-                    {activeDropdown === index && (
-                        <div className="absolute right-0 mt-2 bg-white shadow-md border rounded-md text-sm z-50 w-32">
-                        <button
-                            onClick={() => handleEdit(item)}
-                            className="block px-4 py-2 w-full text-left hover:bg-gray-100"
-                        >
-                            Edit
-                        </button>
-                        <button
-                            onClick={() => handleDelete(item.id)}
-                            className="block px-4 py-2 w-full text-left hover:bg-gray-100 text-red-600"
-                        >
-                            Remove
-                        </button>
-                        </div>
-                    )}
-                    </div>
-                     */}
+                
 
                      <div className="relative mt-1">
   <button

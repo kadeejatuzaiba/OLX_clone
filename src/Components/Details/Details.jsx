@@ -33,7 +33,7 @@ const Details = () => {
           
           <div className="border-2 rounded-lg flex justify-center items-center overflow-hidden h-96">
             <img
-              className="object-cover w-full h-full"
+              className="object-contain w-full h-full"
               src={item?.imageUrl}
               alt={item?.title}
             />
@@ -50,7 +50,13 @@ const Details = () => {
 
             <div className="flex justify-between items-end mt-6 text-sm">
               <p className="font-bold">Seller: {item?.userName}</p>
-              <p>{item?.createdAt}</p>
+              <p>
+  {new Date(item?.createdAt).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })}
+</p>
             </div>
           </div>
         </div>
