@@ -43,12 +43,31 @@ const Sell = ({ status, toggleModalSell }) => {
     "For Rent"
   ];
 
-  // image upload
+
   const handleImageUpload = (event) => {
-    if (event.target.files) {
-      setImage(event.target.files[0]);
+  const file = event.target.files[0];
+
+  if (file) {
+    if (!file.type.startsWith("image/")) {
+      Swal.fire("Invalid File", "Only image files are allowed", "error");
+      return;
     }
-  };
+
+    setImage(file);
+  }
+};
+
+
+const handleClose = () => {
+  setTitle("");
+  setCategory("");
+  setPrice("");
+  setDescription("");
+  setImage(null);
+
+  toggleModalSell();
+};
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -64,7 +83,7 @@ const Sell = ({ status, toggleModalSell }) => {
     const trimmedPrice = price.toString().trim();
     const trimmedDescription = description.trim();
 
-    // ✅ validation
+
     if (!trimmedTitle || !category || !trimmedPrice || !trimmedDescription) {
       Swal.fire("Missing Fields", "All fields are required", "info");
       setSubmitting(false);
@@ -107,7 +126,7 @@ const Sell = ({ status, toggleModalSell }) => {
 
       await addDoc(collection(fireStore, "Products"), {
         title: trimmedTitle,
-        category: category, // ✅ already correct from dropdown
+        category: category, 
         price: trimmedPrice,
         description: trimmedDescription,
         imageUrl,
@@ -139,12 +158,12 @@ setItems(sorted);
   };
 
   return (
-    <Modal show={status} size="md" popup={true} onClose={toggleModalSell}>
+    <Modal show={status} size="md" popup={true} onClose={handleClose}>
       <ModalBody className="bg-white rounded-lg p-6">
 
         {/* close */}
         <img
-          onClick={toggleModalSell}
+          onClick={handleClose}
           className="w-5 absolute right-6 top-6 cursor-pointer"
           src={close}
           alt="close"

@@ -18,7 +18,7 @@ function Home() {
   const toggleModal = () => setModal(!openModal)
   const toggleModalSell = () => setModalSell(!openModalSell)
 
-  // ✅ ONLY ONE useEffect
+  
   useEffect(() => {
     const getItems = async () => {
       const datas = await fetchFromFireStore();

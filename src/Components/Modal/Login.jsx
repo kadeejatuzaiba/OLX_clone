@@ -28,7 +28,7 @@ const Login = ({toggleModal,status}) => {
           "base": "relative w-full p-4 md:h-auto",
           "inner": "relative flex max-h-[90dvh] flex-col rounded-lg bg-white shadow dark:bg-gray-700"
         },
-      }} onClick={toggleModal} show={status} className="bg-black rounded-none" position={'center'} size="md" popup={true}>
+      }} onClick={toggleModal} show={status} className="bg-black rounded-none z-[9999]" position={'center'} size="md" popup={true}>
 
         <div onClick={(event)=>event.stopPropagation()} className="p-6 pl-2 pr-2 bg-white"> 
           <img onClick={toggleModal} src={close} alt="" className="w-6 absolute z-10 top-4 right-4 cursor-pointer" />
